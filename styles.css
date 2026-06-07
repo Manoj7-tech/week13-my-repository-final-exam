@@ -1,0 +1,669 @@
+/* ==========================================
+   1. GLOBAL STYLES & RESET
+   ========================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  scroll-behavior: smooth;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --bg-color: #080808;
+  --second-bg-color: #101010;
+  --text-color: white;
+  --main-color: #ea580c;
+  --glow-color: rgba(234, 88, 12, 0.5);
+}
+
+html {
+  font-size: 60%; /* 1rem = 6px */
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: var(--second-bg-color);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--main-color);
+  border-radius: 6px;
+}
+
+/* ==========================================
+   2. HEADER & NAVIGATION SECTION
+   ========================================== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 10%;
+  z-index: 1000;
+}
+
+#menu-icon {
+  font-size: 3.5rem;
+  color: var(--main-color);
+  cursor: pointer;
+  display: none;
+} 
+
+.logo {
+  font-size: 3rem;
+  color: var(--text-color);
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.logo span {
+  background: linear-gradient(270deg, yellow, #df8908 40%, #ff1d15 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.navbar a {
+  font-size: 1.8rem;
+  color: var(--text-color);
+  margin-left: 4rem;
+  font-weight: 500;
+  transition: 0.3s ease-in-out; 
+  border-bottom: 3px solid transparent;
+  padding-bottom: 0.5rem;
+}
+
+.navbar a:hover {
+  color: var(--main-color);
+  border-bottom: 3px solid var(--main-color);
+}
+
+.gradient_btn {
+  padding: 1rem 2.5rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--text-color);
+  background: linear-gradient(90deg, #ea580c 0%, #ff1d15 100%);
+  border-radius: 3rem;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  transition: 0.3s ease-in-out;
+}
+
+.gradient_btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(234, 88, 12, 0.4);
+}
+
+/* ==========================================
+   3. GENERAL REUSABLE CLASSES
+   ========================================== */
+section {
+  padding: 15rem 10% 10rem;
+  min-height: 100vh;
+}
+
+.btn {
+  display: inline-block;
+  padding: 1.2rem 2.8rem;
+  background: var(--main-color);
+  border-radius: 3rem;
+  color: var(--text-color);
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border: 2px solid transparent;
+  transition: 0.3s ease-in-out;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px var(--main-color), 
+              0 0 45px var(--main-color);
+}
+
+/* ==========================================
+   4. HERO / HOME SECTION (Fixed to your HTML)
+   ========================================== */
+.home {
+  display: flex !important;
+  flex-direction: row-reverse !important; /* Puts image column seamlessly on the left side */
+  justify-content: flex-end !important;
+  align-items: center;
+  gap: 6rem;
+  min-height: 85vh;
+  padding: 18rem 10% 10rem;
+}
+
+.home-img {
+  flex: 0 0 14rem !important; 
+  width: 14rem !important;
+  height: 14rem !important;
+}
+
+.home-img img {
+  width: 14rem !important;
+  height: 14rem !important;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 87, 34, 0.2);
+  box-shadow: 0 0 30px var(--glow-color);
+  transition: 0.5s ease;
+}
+
+.home-img img:hover {
+  transform: scale(1.05);
+  border-color: var(--main-color);
+}
+
+.home-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.home-content h1 {
+  font-size: 4.8rem;
+  font-weight: 800;
+  line-height: 1.2;
+  background: linear-gradient(to right, #ffffff, #9ca3af);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.home-content h3 {
+  margin: 1.2rem 0;
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--main-color);
+}
+
+.home-content p {
+  font-size: 1.6rem;
+  color: #9ca3af;
+  line-height: 1.8;
+  margin-bottom: 3rem;
+}
+
+.social-icons {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.social-icons a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  background: transparent;
+  border: 2px solid var(--main-color);
+  border-radius: 50%;
+  font-size: 2.2rem;
+  color: var(--main-color);
+  transition: 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+  background-color: var(--main-color);
+  color: var(--bg-color);
+  box-shadow: 0 0 15px var(--main-color);
+}
+
+.butn-group {
+  display: flex;
+  gap: 2rem;
+}
+
+.butn-group .btn:nth-child(2) {
+  background: transparent;
+  border-color: var(--main-color);
+  color: var(--main-color);
+}
+
+.butn-group .btn:nth-child(2):hover {
+  background: var(--main-color);
+  color: var(--text-color);
+}
+
+/* ==========================================
+   5. ABOUT SECTION (Fixed to your HTML)
+   ========================================== */
+.about {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: flex-start !important;
+  align-items: center;
+  gap: 6rem;
+  background-color: var(--second-bg-color);
+  padding: 15rem 10% 10rem;
+}
+
+.about-image {
+  flex: 0 0 14rem !important; 
+  width: 14rem !important;
+  height: 14rem !important;
+}
+
+.about-image img {
+  width: 14rem !important;
+  height: 14rem !important;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid rgba(234, 88, 12, 0.4);
+  box-shadow: 0 0 25px rgba(234, 88, 12, 0.5);
+  transition: 0.5s ease;
+}
+
+.about-image img:hover {
+  transform: scale(1.05);
+}
+
+.about .content {
+  flex: 1;
+}
+
+.about .content h2 {
+  font-size: 5.5rem;
+  font-weight: 700;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.about .content p {
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.8;
+  margin-bottom: 3rem;
+}
+
+/* ==========================================
+   6. SKILLS SECTION (GLASS DESIGN)
+   ========================================== */
+.skills {
+  background-color: var(--bg-color);
+}
+
+.skills .heading {
+  font-size: 5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.services-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.service-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--second-bg-color);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  height: 38rem; 
+  border-radius: 2.5rem;
+  cursor: pointer;
+  transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-box:hover {
+  background: #111115;
+  border-color: var(--main-color);
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 87, 34, 0.15);
+}
+
+.service-info {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem;
+}
+
+.service-info i {
+  font-size: 6.5rem;
+  color: var(--main-color);
+  margin-bottom: 1rem;
+  transition: 0.3s ease;
+}
+
+.service-box:hover .service-info i {
+  transform: scale(1.1);
+  text-shadow: 0 0 15px var(--main-color);
+}
+
+.service-info h4 {
+  font-size: 2.4rem;
+  color: var(--text-color);
+  font-weight: 700;
+  margin: 1.5rem 0;
+}
+
+.service-box:hover .service-info h4 {
+  color: var(--main-color);
+}
+
+.service-info p {
+  font-size: 1.4rem;
+  color: #9ca3af;
+  line-height: 1.6;
+}
+
+/* ==========================================
+   7. HOBBIES SECTION
+   ========================================== */
+.hobbies {
+  background-color: var(--second-bg-color);
+}
+
+.hobbies .heading {
+  font-size: 5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 6rem;
+}
+
+.hobbies-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;       
+  gap: 2.5rem;
+}
+
+.hobbies-box {
+  flex: 1 1 28rem;       
+  max-width: 31rem;      
+  background-color: var(--bg-color);
+  border-radius: 2rem;
+  overflow: hidden;      
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hobbies-box:hover {
+  border-color: rgba(255, 87, 34, 0.5);
+  transform: translateY(-8px); 
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+.project-card {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 100%; 
+}
+
+.project-card img {
+  width: 100%;
+  height: 19rem;
+  object-fit: cover;
+  border-radius: 1.5rem;
+  margin-bottom: 2rem;
+  transition: 0.4s ease;
+}
+
+.hobbies-box:hover .project-card img {
+  transform: scale(1.02);
+}
+
+.project-card h3 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  text-transform: capitalize;
+}
+
+.project-card p {
+  font-size: 1.3rem;
+  line-height: 1.7;
+  color: #a3a3a3;
+  margin-bottom: 2.5rem;
+  display: none; 
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.project-card p.show-text {
+  display: block; 
+  opacity: 1;
+}
+
+.project-card .btn {
+  padding: 1rem 2rem;
+  font-size: 1.4rem;
+  margin-top: auto; 
+  transition: 0.3s ease-in-out;
+}
+
+/* ==========================================
+   8. CONTACT SECTION & FOOTER
+   ========================================== */
+.contact {
+  background-color: var(--bg-color);
+}
+
+.contact .heading {
+  font-size: 5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.contact form {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin: 5rem auto;
+  max-width: 70rem;
+  text-align: center; 
+}
+
+.contact form .input-box {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 2rem;
+}
+
+.contact form .input-box input, 
+.contact form textarea {
+  width: 100%;
+  padding: 2rem;
+  background-color: var(--second-bg-color);
+  border: 2px solid var(--main-color);
+  border-radius: 2rem;
+  color: var(--text-color);
+  font-size: 1.6rem;
+  margin: 1rem 0;
+  resize: none;
+}
+
+.contact form .btn {
+  margin-top: 2rem;
+  padding: 1.5rem 4rem;
+}
+
+.footer {
+  padding: 5rem 10%;
+  background-color: var(--second-bg-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.footer .list {
+  display: flex;
+  gap: 3rem;
+  list-style: none;
+}
+
+.footer .list a {
+  font-size: 1.8rem;
+  color: var(--text-color);
+  transition: 0.3s;
+}
+
+.footer .list a:hover {
+  color: var(--main-color);
+}
+
+.copyright {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1.6rem;
+  color: #a3a3a3;
+}
+
+/* ==========================================
+   9. RESPONSIVE MEDIA QUERIES (TABLETS)
+   ========================================== */
+@media (max-width: 1285px) {
+  #menu-icon {
+    display: block;
+  }
+
+  .navbar {
+    position: absolute;
+    top: 100%;
+    left: -100%;
+    width: 30rem;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    border-right: 2px solid var(--main-color);
+    border-bottom: 2px solid var(--main-color);
+    display: flex;
+    flex-direction: column;
+    padding: 5rem 3rem;
+    transition: 0.4s ease;
+    z-index: 100;
+  }
+
+  .navbar.active {
+    left: 0;
+  }
+
+  .navbar a {
+    display: block;
+    margin: 2.5rem 0;
+    font-size: 2.2rem;
+    color: var(--text-color);
+    margin-left: 0;
+  }
+
+  .home {
+    flex-direction: column-reverse !important;
+    text-align: center;
+    gap: 3rem;
+  }
+
+  .about {
+    flex-direction: column !important;
+    text-align: center;
+    gap: 3rem;
+  }
+
+  .home-img, .about-image {
+    flex: initial !important;
+    width: 25vw !important;
+    height: 25vw !important;
+  }
+
+  .home-img img, .about-image img {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .home-content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .about .content h2 {
+    text-align: center;
+  }
+
+  .contact form .input-box {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+/* ==========================================
+   10. MOBILE OPTIMIZATION (768px and Below)
+   ========================================== */
+@media (max-width: 768px) {
+  .navbar {
+    display: flex;
+    flex-direction: column !important;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem 0;
+  }
+
+  .home-content h1 {
+    font-size: 3.2rem !important; 
+    text-align: center;
+  }
+
+  .home-img,
+  .about-image,
+  .home-img img,
+  .about-image img {
+    width: 120px !important;
+    height: 120px !important;
+  }
+
+  .btn,
+  .gradient_btn,
+  .project-card .btn,
+  .contact form .btn,
+  .navbar a,
+  .social-icons a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
